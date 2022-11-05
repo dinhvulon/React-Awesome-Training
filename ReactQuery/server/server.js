@@ -4,7 +4,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const PORT = 4000
-const DELAY = 1000
+const DELAY = 2000
 
 const validateEmail = (email) => {
   return String(email)
@@ -43,7 +43,10 @@ server.use((req, res, next) => {
 router.render = (req, res) => {
   let data = res.locals.data
   const { originalUrl } = req
-  if (originalUrl === '/students' || /^\/students\?.*$/.test(originalUrl)) {
+  if (
+    req.method === 'GET' &&
+    (originalUrl === '/students' || /^\/students\?.*$/.test(originalUrl))
+  ) {
     data = data.map((student) => ({
       id: student.id,
       avatar: student.avatar,
