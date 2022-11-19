@@ -76,10 +76,12 @@ Dưới đây là những depedency mà chúng ta cần cài
 
 - eslint-plugin-prettier: Dùng thêm 1 số rule Prettier cho ESLint
 
+- prettier-plugin-tailwindcss: Sắp xếp class tailwindcss
+
 Chạy câu lệnh dưới đây
 
 ```bash
-yarn add eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-prettier -D
+yarn add eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-prettier prettier-plugin-tailwindcss -D
 ```
 
 Cấu hình ESLint
