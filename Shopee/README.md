@@ -78,10 +78,12 @@ Dưới đây là những depedency mà chúng ta cần cài
 
 - prettier-plugin-tailwindcss: Sắp xếp class tailwindcss
 
+- eslint-plugin-react-hooks: ESLint cho React hook
+
 Chạy câu lệnh dưới đây
 
 ```bash
-yarn add eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-prettier prettier-plugin-tailwindcss -D
+yarn add eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-prettier prettier-plugin-tailwindcss eslint-plugin-react-hooks -D
 ```
 
 Cấu hình ESLint
@@ -97,6 +99,7 @@ module.exports = {
     // Chúng ta sẽ dùng các rule mặc định từ các plugin mà chúng ta đã cài.
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
