@@ -290,3 +290,16 @@ Cấu hình VS Code
 > 1. Môi trường VS Code, khi chúng ta đưa chuột vào click thì chạy đến đúng file
 > 2. Môi trường ES Lint
 > 3. Môi trường Terminal\*
+
+## Ghi chú code
+
+Code xóa các ký tự đặc biệt trên bàn phím
+
+```ts
+export const removeSpecialCharacter = (str: string) =>
+  // eslint-disable-next-line no-useless-escape
+  str.replace(
+    /!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g,
+    ''
+  )
+```
