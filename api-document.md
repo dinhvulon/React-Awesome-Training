@@ -308,9 +308,50 @@ Body:
 
 Rules
 
-- name: maxLength = 160
-- phone: maxLength = 20
-- address: maxLength = 160
-- date_of_birth: ISO8601
-- password: length: 6-160
-- new_password: length: 6-160
+- name: string, maxLength = 160
+- phone: string, maxLength = 20
+- address: string, maxLength = 160
+- date_of_birth: string, ISO8601
+- avatar: string, maxLength 1000
+- password: string, length 6-160
+- new_password: string, length 6-160
+
+## Upload Avatar: `/user/upload-avatar`
+
+Method: POST
+
+Header: `'Content-Type': 'multipart/form-data'`
+
+Body: FormData với item có key là `image`
+
+Rules
+
+- Ảnh phải bé hơn 1MB
+- Phải là định dạng ảnh
+
+Lưu ý:
+
+- Có thể lỗi trả về dạng 422 với key là `image` hoặc không có gì cả
+- Server không đảm bảo ảnh của bạn sẽ tồn tại mãi mãi trên server. Có thể tồn tài vài ngày hoặc lâu hơn.
+- Vì là upload ảnh nên hạn chế spam và upload quá nhiều ảnh dẫn đến server quá tải ảnh hưởng đến các bạn khác.
+
+## Custom Expire Access Token - Refresh Token
+
+Áp dụng cho `/login` và `/register`
+
+Chỉ cần truyền lên header
+
+- `expire-access-token`: number => số giây hết hạn của access token
+- `expire-refresh-token`: number => số giây hết hạn của refresh token
+
+## Refresh Token: `/refresh-access-token`
+
+Method: POST
+
+Body:
+
+```json
+{
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxNUBnbWFpbC5jb20iLCJpZCI6IjYwYzZmNGViNGVhMWRlMzg5ZjM1NjA1YiIsInJvbGVzIjpbIlVzZXIiXSwiY3JlYXRlZF9hdCI6IjIwMjEtMDYtMTRUMDY6MTk6MjMuNzQ5WiIsImlhdCI6MTYyMzY1MTU2MywiZXhwIjoxNjI0MjU2MzYzfQ.WbNgnd4cewdDNpx-ZLebk1kLgogLctBqgh9fc9Mb3yg"
+}
+```
